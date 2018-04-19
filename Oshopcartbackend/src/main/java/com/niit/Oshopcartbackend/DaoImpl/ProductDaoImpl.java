@@ -12,31 +12,30 @@ import com.niit.Oshopcartbackend.model.Product;
 
 @Repository("productDao")
 @Transactional
-public class ProductDaoImpl implements ProductDao  {
+public class ProductDaoImpl implements ProductDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	/**
 	 * SINGLE
 	 */
 	@Override
 	public Product get(int productId) {
 		try {
-		return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(productId));
-	}
-		catch(Exception e) {
+			return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(productId));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-         return null;
+		return null;
 	}
-	
+
 	/**
 	 * LIST
 	 */
 	@Override
 	public List<Product> list() {
-		return sessionFactory.getCurrentSession().createQuery("FROM Product",Product.class).getResultList();
+		return sessionFactory.getCurrentSession().createQuery("FROM Product", Product.class).getResultList();
 	}
 
 	/**
@@ -47,8 +46,7 @@ public class ProductDaoImpl implements ProductDao  {
 		try {
 			sessionFactory.getCurrentSession().persist(product);
 			return true;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
@@ -62,51 +60,57 @@ public class ProductDaoImpl implements ProductDao  {
 		try {
 			sessionFactory.getCurrentSession().update(product);
 			return true;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
+
 	@Override
 	public boolean delete(Product product) {
 		try {
 			product.setActive(false);
-			//call the update method
+			// call the update method
 			return this.update(product);
-			
-		}
-		catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
-	@Override
-	public List<Product> getProductsByParam(String param, int count) {
-		String selectActiveProducts ="FROM Product WHERE active = :active";
-		return sessionFactory.getCurrentSession()
-				 .createQuery(selectActiveProducts, Product.class)
-				  .setParameter("active", true)
-				    .getResultList();
-	}
 
 	@Override
 	public List<Product> listActiveProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		String selectActiveProducts="FROM Product WHERE active=:active";
+		return sessionFactory
+				.getCurrentSession()
+				  .createQuery(selectActiveProducts,Product.class)
+				     .setParameter("active", true)
+				         .getResultList();
 	}
 
 	@Override
 	public List<Product> listActiveProductsByCategory(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+		String selectActiveProductsByCategory="FROM Product WHERE active=:active  AND categoryId =:categoryId";
+		return sessionFactory
+				.getCurrentSession()
+				  .createQuery(selectActiveProductsByCategory,Product.class)
+				     .setParameter("active", true)
+				      .setParameter(categoryId, categoryId)
+				         .getResultList();
+		
 	}
 
 	@Override
 	public List<Product> getLatestActiveProducts(int count) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sessionFactory
+				.getCurrentSession()
+				  .createQuery("FROM Product WHERE active = :active ORDER BY id",Product.class)
+				     .setParameter("active", true)
+				      .setFirstResult(0)
+				       .setMaxResults(count)
+				         .getResultList();
 	}
 
 }

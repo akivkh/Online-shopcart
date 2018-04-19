@@ -28,13 +28,13 @@ public class CategoryTestCase {
 	/*@Test
 	public void testAddCatgeory() {
 		category=new Category();
-		category.setName("Laptop");
-		category.setDescription("This is some description for laptop");
+		category.setName("Television");
+		category.setDescription("This is some description for television");
 		category.setImageURL("CAT_3.png");
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
-	}*/
-	
+	}
+	*/
 	/*@Test
 	public void testGetCategory() {
 		category=categoryDao.get(3);
