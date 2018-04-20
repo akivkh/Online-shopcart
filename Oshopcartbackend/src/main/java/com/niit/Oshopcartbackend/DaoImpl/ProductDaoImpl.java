@@ -96,7 +96,7 @@ public class ProductDaoImpl implements ProductDao {
 				.getCurrentSession()
 				  .createQuery(selectActiveProductsByCategory,Product.class)
 				     .setParameter("active", true)
-				      .setParameter(categoryId, categoryId)
+				      .setParameter("categoryId", categoryId)
 				         .getResultList();
 		
 	}

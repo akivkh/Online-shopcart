@@ -24,10 +24,19 @@
 
 <script>
 	window.menu = '${title}';
+	
+	window.contextRoot = '${contextRoot}'; // FOR TO MAKE IT DYNAMIC
+	
 </script>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+<%-- <!-- Bootstrap Litera Theme -->
+<link href="${css}/bootsrap-litera-theme.css" rel="stylesheet"> --%>
+
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -70,6 +79,12 @@
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 			
+			
+			<!-- loading when user Click show products -->
+			<c:if test="${userClickShowProduct == true }">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
 		</div>
 
 		<!-- Footer comes here -->
@@ -84,6 +99,9 @@
 		
 		<!-- DataTable plugin -->
         <script src="${js}/jquery.dataTables.js"></script>
+        
+        <!-- DataTables Bootstrap Script -->
+         <script src="${js}/dataTables.bootstrap.js"></script>
         
         <!-- self coded javascript -->
 		<script src="${js}/myapp.js"></script>
