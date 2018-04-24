@@ -5,8 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
-<spring:url var="js" value="/resources/js" />
-<spring:url var="images" value="/resources/images" />
+
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -52,66 +51,54 @@
 
 <body>
 	<div class="wrapper">
-		<!-- Navigation -->
-		<%@include file="./templates/navbar.jsp"%>
+		
 
-		<!-- Page Content -->
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <a class="navbar-brand" href="${contextRoot}/home">Home</a>
+	            </div>
+			</div>
+		</nav>
 
 		<div class="content">
 
-			<!-- Home content -->
-			<c:if test="${userClickHome == true }">
-				<%@include file="home.jsp"%>
-			</c:if>
+			<div class="container">
+			
+			   <div class="row">
+			   
+			     <div class="col-xs-12">
+			     
+			        <div class="jumbotron">
+			           
+			           <h1>${errorTitle}</h1>
+			           <hr/>
+			              <blockquote style="word-wrap:break-word">
+			              
+			              ${errorDescription}
+			              
+			                </blockquote>
+			        
+			        
+			        
+			        </div>
+			     
+			     </div>
+			   
+			   
+			   </div>
+			
+			
+			</div>
 
-			<!-- loading when user Click about -->
-			<c:if test="${userClickAbout == true }">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- loading when user Click contact -->
-			<c:if test="${userClickContact == true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			
-			<!-- loading when user Click All products or category products -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-			
-			
-			<!-- loading when user Click show products -->
-			<c:if test="${userClickShowProduct == true }">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
-			
-			<!-- loading when user Click manage products -->
-			<c:if test="${userClickManageProducts == true }">
-				<%@include file="manageProducts.jsp"%>
-			</c:if>
-			
-		</div>
-
-		<!-- Footer comes here -->
+		
 		<%@include file="./templates/footer.jsp"%>
 
 
-		<!-- jQuery -->
-		<script src="${js}/jquery.js"></script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="${js}/bootstrap.min.js"></script>
-		
-		<!-- DataTable plugin -->
-        <script src="${js}/jquery.dataTables.js"></script>
-        
-        <!-- DataTables Bootstrap Script -->
-         <script src="${js}/dataTables.bootstrap.js"></script>
-        
-        <!-- self coded javascript -->
-		<script src="${js}/myapp.js"></script>
-
+</div>
 	</div>
-</body>
+	
+  </body>
 
 </html>
