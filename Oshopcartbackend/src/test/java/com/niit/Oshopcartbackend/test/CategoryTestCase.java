@@ -25,7 +25,7 @@ public class CategoryTestCase {
 		categoryDao = (CategoryDao) context.getBean("categoryDao");
 	}
 	
-	/*@Test
+/*	@Test
 	public void testAddCatgeory() {
 		category=new Category();
 		category.setName("Television");
@@ -33,8 +33,8 @@ public class CategoryTestCase {
 		category.setImageURL("CAT_3.png");
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
-	}
-	*/
+	}*/
+	
 	/*@Test
 	public void testGetCategory() {
 		category=categoryDao.get(3);
@@ -68,16 +68,16 @@ public class CategoryTestCase {
 		
 		//add operation
 		category=new Category();
-		category.setName("Laptop");
-		category.setDescription("This is some description for laptop");
-		category.setImageURL("CAT_1.png");
+		category.setName("Television");
+		category.setDescription("This is some description for television");
+		category.setImageURL("CAT_2.png");
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
 	
 		category=new Category();
-		category.setName("Television");
-		category.setDescription("This is some description for television");
-		category.setImageURL("CAT_2.png");
+		category.setName("Mobile");
+		category.setDescription("This is some description for mobile");
+		category.setImageURL("CAT_3.png");
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
 

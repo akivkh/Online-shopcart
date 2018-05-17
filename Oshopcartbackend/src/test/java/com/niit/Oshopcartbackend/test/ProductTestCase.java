@@ -26,12 +26,12 @@ public class ProductTestCase {
 	/*@Test
 	public void testAddProduct() {
 		product=new Product();
-		product.setCode("PRDABCXYZDEFX");
-		product.setName("Acer E15");
+		product.setCode("PRDABCXYZPQRS");
+		product.setName("Acer Aspire E15");
 		product.setBrand("Acer");
-		product.setDescription("one of the best laptop series from Acer that can be used");
-		product.setUnitPrice(48000);
-		product.setQuantity(5);
+		product.setDescription("This is one of the best laptop available in market");
+		product.setUnitPrice(40000);
+		product.setQuantity(3);
 		product.setActive(true);
 		product.setCategoryId(1);
 		product.setSupplierId(3);
@@ -46,10 +46,10 @@ public class ProductTestCase {
 		
 		//create operation
 		product = new Product();
-		product.setName("Redmi 4");
-		product.setBrand("MI");
-		product.setDescription("this is some description for Mi phone");
-		product.setUnitPrice(10000);
+		product.setName("Oppo f7");
+		product.setBrand("Oppo");
+		product.setDescription("this is some description for Oppo phone");
+		product.setUnitPrice(25000);
 		product.setActive(true);
 		product.setCategoryId(3);
 		product.setSupplierId(3);
@@ -57,10 +57,10 @@ public class ProductTestCase {
 		assertEquals("Something went wrong while Inserting a new Product!",true,productDao.add(product));
 		 
 		
-		//reading and updating the Cattegory
+		//reading and updating the Category
 		
 		product =productDao.get(2);
-		product.setName("Samsung Galaxy S7");
+		product.setName("Redmi 4");
 		
 		assertEquals("Something went wrong while Updating the exsisting record!",true,productDao.update(product));
 		
@@ -93,6 +93,7 @@ public class ProductTestCase {
 				3,productDao.getLatestActiveProducts(3).size());
 		
 	} 
-		}
+	
+}
 	
 

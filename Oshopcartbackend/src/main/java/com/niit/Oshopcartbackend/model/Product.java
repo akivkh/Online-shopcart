@@ -1,5 +1,6 @@
 package com.niit.Oshopcartbackend.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -16,8 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	// private field
 
 	@Id
@@ -36,7 +42,7 @@ public class Product {
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
-	private boolean active;
+	private boolean active = true;
 	@Column(name = "category_id")
 	@JsonIgnore
 	private int categoryId;
