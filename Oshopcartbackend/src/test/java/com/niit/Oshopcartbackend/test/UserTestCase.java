@@ -109,7 +109,7 @@ public class UserTestCase {
 	      assertEquals("Failed to add user,",true, userDao.addUser(user));
 	}*/
 	
-	@Test
+	/*@Test
 	public void testUpdateCart() {
 		
 		//fetch the user by its email
@@ -122,6 +122,90 @@ public class UserTestCase {
 		cart.setGrandTotal(5555);
 		cart.setCartLines(2);
 		assertEquals("Failed to update the cart!", true, userDao.updateCart(cart));
+	}*/
+	
+/*	@Test
+	public void testAddAddress() {
+		
+		// we need to add user
+		user = new User();
+		user.setFirstName("Ramesh");
+		user.setLastName("Sharma");
+		user.setEmail("rs@gmail.com");
+		user.setContactNumber("1234567890");
+		user.setRole("USER");
+		user.setPassword("123456789");
+				
+		
+		//add the user
+		assertEquals("Failed to add user,",true, userDao.addUser(user));
+	
+		
+		// we are going to add the billing address
+		
+		address =new Address();
+		address.setAddressLineOne("101/B Teacher Colony Sidhart Nagar");
+		address.setAddressLineTwo("Near Petrol Pump");
+		address.setCity("Lucknow");
+		address.setState("Uttar Pradesh");
+		address.setCountry("India");
+		address.setPostalCode("140001");
+		address.setBilling(true);
+		
+		// attach the user to the address
+		address.setUser(user);
+		
+		assertEquals("Failed to add Address",true, userDao.addAddress(address));
+		
+		// we are also going to add shipping address
+		address =new Address();
+		address.setAddressLineOne("101/B Teacher Colony Sidhart Nagar");
+		address.setAddressLineTwo("Near Petrol Pump");
+		address.setCity("Lucknow");
+		address.setState("Uttar Pradesh");
+		address.setCountry("India");
+		address.setPostalCode("140001");
+		//set shipping to true
+		address.setShipping(true);
+		
+		// attach the user to the address
+				address.setUser(user);
+				
+				assertEquals("Failed to add Shipping Address",true, userDao.addAddress(address));
+		
+	}*/
+	/*@Test
+	public void testAddAddress() {
+		
+		user =userDao.getByEmail("rs@gmail.com");
+		
+		// we are also going to add shipping address
+				address =new Address();
+				address.setAddressLineOne("1020/B Teacher Colony Sidhart Nagar");
+				address.setAddressLineTwo("Near Petrol Pump");
+				address.setCity("Banglore ");
+				address.setState("Karnataka");
+				address.setCountry("India");
+				address.setPostalCode("140002");
+				//set shipping to true
+				address.setShipping(true);
+				
+				// attach the user to the address
+						address.setUser(user);
+						
+						assertEquals("Failed to add Shipping Address",true, userDao.addAddress(address));
+		
+	}*/
+	@Test
+	public void testGetAddresses() {
+		
+		user =userDao.getByEmail("rs@gmail.com");
+		assertEquals("failed to fetch the list of address and size deos not match!",2, 
+				  userDao.listShippingAddresses(user).size());
+	
+	
+		assertEquals("failed to fetch the list of billing address and size deos not match!","Lucknow", 
+				  userDao.getBillingAddress(user).getCity());
 	}
 	
 }

@@ -26,7 +26,21 @@ $(function(){
 		  break;
 	}
 	
-//code for jquery dataTables
+/*	  // to tackle the csrf token
+	   var token= $('meta[name="_csrf"]').attr('content');
+	   var header= $('meta[name="_csrf_header"]').attr('content');
+		
+	   if(token.length > 0 && header.length > 0){
+		   
+		   // set the token header for the ajax request
+		   $(document).ajaxSend(function(e,xhr,options){
+			   xhr.setRequestHeader(header,token);
+			   
+			   
+		   });
+	   }*/
+	
+   //code for jquery dataTables
 
 	var $table = $('#productListTable');
 	
@@ -295,22 +309,22 @@ $(function(){
 			});
 		}
 	   
-	 //---------------------------------
-	 // validation code for category
+	/* //---------------------------------
+	 // validation code for login
 		
-		var $categoryForm = $('#categoryForm');
-		if($categoryForm.length){
+		var $loginForm = $('#loginForm');
+		if($loginForm.length){
 			
-	    $categoryForm.validate({
+	    $loginForm.validate({
 	    	
 	    	rules:{
 	    		
-	    		name:{
+	    		username:{
 	    			
 	    			required: true,
-	    			minlength: 2
+	    			email: true
 	    		},
-	    		description: {
+	    		password: {
 	    			required: true
 	    		}
 	    		
@@ -318,16 +332,16 @@ $(function(){
 	    	
 	    	message:{
 	    		
-	    		   name:{
+	    		   username:{
 	    			   
-	    			   required: 'Please add the category name!',
-	    			   minlength: 'The category name should not be less than 2 characters'
+	    			   required: 'Please enter the username!',
+	    			   email: 'Please enter valid email address'
 	    			   
 	    		   },
 	    		 
-	    		   description:{
+	    		   password:{
 	    			   
-	    			   required: 'Please add a description for this category!'
+	    			   required: 'Please enter the password!'
 	    		   }
 	    	},
 	    	
@@ -341,8 +355,55 @@ $(function(){
 	  }
 	    	 
 	});
-}
+}*/
 		//------------------------------------
 		
-	 
+		 //---------------------------------
+		 // validation code for category
+			
+			var $categoryForm = $('#categoryForm');
+			if($categoryForm.length){
+				
+		    $categoryForm.validate({
+		    	
+		    	rules:{
+		    		
+		    		name:{
+		    			
+		    			required: true,
+		    			minlength: 2
+		    		},
+		    		description: {
+		    			required: true
+		    		}
+		    		
+		    	},
+		    	
+		    	message:{
+		    		
+		    		   name:{
+		    			   
+		    			   required: 'Please add the category name!',
+		    			   minlength: 'The category name should not be less than 2 characters'
+		    			   
+		    		   },
+		    		 
+		    		   description:{
+		    			   
+		    			   required: 'Please add a description for this category!'
+		    		   }
+		    	},
+		    	
+		    	errorElement: 'em',
+		    	errorPlacement: function(error, element){
+		    // add the class of help-block
+		    	error.addClass('help-block');
+		    	
+		    // add the error  element after the input element
+		    	error.insertAfter(element);
+		  }
+		    	 
+		});
+	}
+			//------------------------------------
 });
