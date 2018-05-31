@@ -26,19 +26,17 @@ $(function(){
 		  break;
 	}
 	
-/*	  // to tackle the csrf token
-	   var token= $('meta[name="_csrf"]').attr('content');
-	   var header= $('meta[name="_csrf_header"]').attr('content');
+	  // to tackle the csrf token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header =$('meta[name="_csrf_header"').attr('content');
+	if(token.length > 0 && haeder.length > 0){
 		
-	   if(token.length > 0 && header.length > 0){
-		   
-		   // set the token header for the ajax request
-		   $(document).ajaxSend(function(e,xhr,options){
-			   xhr.setRequestHeader(header,token);
-			   
-			   
-		   });
-	   }*/
+		//set the token for the ajax request
+		$(document).ajaxSend(function(e, xhr, options){
+			xhr.setRequestHeader(header,token);	
+	});
+		}
+	
 	
    //code for jquery dataTables
 
@@ -107,25 +105,25 @@ $(function(){
 	        			var str = '';
 	        			str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"</span></a> &#160;'; //&#160 using for additional space
 	        			 
-	        			if(row.quantity <1){
+	        			if(userRole == 'ADMIN '){
+	        				 str += '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"</span></a>';
+	        			}
+	        			else{
+	        			  if(row.quantity <1){
 	        				
 	        				str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"</span></a>';
 	        			}
 	        			else{
+	        			   
 	        				str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"</span></a>';
-	        			}
+	        		}
 	        			
-	        			
+	        			}	
 	        			return str;
 	        		}
 	        			
 	        	}
-	        	
-	        	
-	        	
-	        	
-	        	
-	        ]
+	    ]
 			
 		});
 	}
@@ -309,7 +307,7 @@ $(function(){
 			});
 		}
 	   
-	/* //---------------------------------
+	 //---------------------------------
 	 // validation code for login
 		
 		var $loginForm = $('#loginForm');
@@ -355,7 +353,7 @@ $(function(){
 	  }
 	    	 
 	});
-}*/
+}
 		//------------------------------------
 		
 		 //---------------------------------

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Oshopcartbackend.Dao.UserDao;
 import com.niit.Oshopcartbackend.model.Address;
-import com.niit.Oshopcartbackend.model.Cart;
 import com.niit.Oshopcartbackend.model.User;
 
 @Repository("userDao")
@@ -44,19 +43,6 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-			return false;
-		}
-		
-	}
-
-	@Override
 	public User getByEmail(String email) {
 		String selectQuery="FROM User WHERE email= :email";
 		 try {
@@ -67,7 +53,7 @@ public class UserDaoImpl implements UserDao {
 			 
 		 }
 		 catch(Exception ex) {
-			 ex.printStackTrace();
+			 //ex.printStackTrace();
 			 return null;
 		 }
 	}

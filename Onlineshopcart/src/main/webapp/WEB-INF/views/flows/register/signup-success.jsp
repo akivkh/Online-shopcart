@@ -10,7 +10,7 @@
 			<div class="text-center">
 
 				<h1>Welcome!</h1>
-				<h3>onlineshpcart.com</h3>
+				<h3>onlineshopcart.com</h3>
 				<h6>You use your email address as username to login!</h6>
 
 				<div>

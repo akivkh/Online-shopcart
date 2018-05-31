@@ -37,7 +37,7 @@ public class Address implements Serializable {
 		this.user = user;
 	}
 
-	@NotBlank
+	
 	private int userId;
 
 	public int getUserId() {
