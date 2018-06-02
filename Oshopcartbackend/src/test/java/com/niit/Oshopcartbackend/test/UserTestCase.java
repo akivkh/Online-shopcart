@@ -26,18 +26,19 @@ public class UserTestCase {
 		context.refresh();
 		
 		userDao =(UserDao)context.getBean("userDao");
+		
 	}
-	/*@Test
+	@Test
 	public void testAdd() {
 	 
 		user = new User();
 		user.setFirstName("Ramesh");
 		user.setLastName("Sharma");
-		user.setEmail("rs@gmail.com");
+		user.setEmail("abc2@gmail.com");
 		user.setContactNumber("1234567890");
 		user.setRole("USER");
 		user.setPassword("123456789");
-				
+		
 		
 		//add the user
 		assertEquals("Failed to add user,",true, userDao.addUser(user));
@@ -60,11 +61,14 @@ public class UserTestCase {
 		if(user.getRole().equals("USER")) {
 			//create a cart for this user
 			cart= new Cart();
+			
 			cart.setUser(user);
 			
+			User nUser=userDao.getByEmail(cart.getUser().getEmail());
+			nUser.setCart(cart);
 			// add the cart
-			assertEquals("Failed to add cart,",true, userDao.addCart(cart));
-		
+			assertEquals("Failed to add cart,",true, userDao.updateUser(nUser));
+		System.out.println(cart.getId());
 			// add a shipping address for this user
 			address =new Address();
 			address.setAddressLineOne("101/B Teacher Colony Sidhart Nagar");
@@ -83,7 +87,7 @@ public class UserTestCase {
 			assertEquals("Failed to add shipping address",true, userDao.addAddress(address));
 		}
 	
-	}*/
+	}
 	
 /*	
 	@Test

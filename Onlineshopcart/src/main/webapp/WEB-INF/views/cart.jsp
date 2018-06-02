@@ -1,4 +1,4 @@
-<%--  
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <div class="container">
 
 <c:if test="${not empty message}">
@@ -11,7 +11,7 @@
 
 </c:if>
 
-   <c:chooose>
+   <c:choose>
 
   <c:when test="${not empty cartLines}">
   
@@ -89,7 +89,7 @@
     
     </c:otherwise>
 
-      </c:chooose>
+      </c:choose>
 
 
-</div> --%>
+</div>

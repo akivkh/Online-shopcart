@@ -38,7 +38,7 @@ public class CartLineTestCase {
 		cartLineDao = (CartLineDao)context.getBean("cartLineDao");
 	}
 	
-	@Test
+	@Test 
 	public void testAddNewCartLine() {
 		// 1.get the user
 		user = userDao.getByEmail("ar@gmail.com");
@@ -67,7 +67,6 @@ public class CartLineTestCase {
 		assertEquals("Failed to add the cartLine", true, cartLineDao.add(cartLine));
 		
 		// update the cart
-		
 		cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
 		cart.setCartLines(cart.getCartLines() +1);
 		

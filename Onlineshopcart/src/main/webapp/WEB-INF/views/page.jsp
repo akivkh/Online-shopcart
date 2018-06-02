@@ -94,7 +94,7 @@
 			
 				<!-- loading when user Click show cart-->
 			<c:if test="${userClickShowCart == true }">
-				<%@include file="cart.jsp"%>
+			<%@include file="cart.jsp"%>
 			</c:if>
 			
 		</div>
