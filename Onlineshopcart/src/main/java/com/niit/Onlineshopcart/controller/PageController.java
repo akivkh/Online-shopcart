@@ -34,6 +34,8 @@ public class PageController {
 	private ProductDao productDao;
 	
 	
+	
+	
 	@RequestMapping(value= {"/","/home","/index"})
 	public ModelAndView index() {
 		
@@ -135,9 +137,10 @@ public class PageController {
 	public ModelAndView register() {
 		
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title","About Us");
+		mv.addObject("title","Registration");
 		return mv;
 	}
+	
 	
 	// Login
 	@RequestMapping(value= "/login")public ModelAndView login(@RequestParam(name="error",  required=false)String error,

@@ -89,6 +89,19 @@ public class UserDaoImpl implements UserDao {
 			return null;
 		}
 	}
+
+	@Override
+	public boolean updateUser(User user) {
+		try {
+			sessionFactory.getCurrentSession().update(user);
+			return true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+		
+	}
 	
 
 }

@@ -41,7 +41,7 @@ public class HibernateConfig {
 			pp.put("hibernate.show_sql", "true");
 			pp.put("hibernate.format_sql", "true");
 			
-			pp.put("hibernate.hbm2ddl.auto", "none");
+			pp.put("hibernate.hbm2ddl.auto", "update");
 			
 			return pp;
 		}

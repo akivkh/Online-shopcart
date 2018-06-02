@@ -54,9 +54,9 @@ public class CartLineTestCase {
 		
 		cartLine.setBuyingPrice(product.getUnitPrice());
 		
-		cartLine.setProductCount(cartLine.getProductCount());
+		cartLine.setProductCount(cartLine.getProductCount() + 1);
 		
-		cartLine.setTotal(cartLine.getProductCount() * product.getUnitPrice() +1);
+		cartLine.setTotal(cartLine.getProductCount() * product.getUnitPrice());
 		
 		cartLine.setAvailable(true);
 		

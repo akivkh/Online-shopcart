@@ -22,6 +22,7 @@ public interface CartLineDao {
 
 	// add an cart
 	boolean updateCart(Cart cart);
+	boolean addCart(Cart cart);
 	
 	
 }
