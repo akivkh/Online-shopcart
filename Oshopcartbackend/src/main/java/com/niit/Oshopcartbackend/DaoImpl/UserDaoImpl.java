@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.Oshopcartbackend.Dao.UserDao;
 import com.niit.Oshopcartbackend.model.Address;
+import com.niit.Oshopcartbackend.model.Cart;
 import com.niit.Oshopcartbackend.model.User;
 
 @Repository("userDao")
@@ -59,12 +60,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public Address getBillingAddress(User user) {
-		String selectQuery="FROM Address WHERE user = :user AND billing = :billing";
+	public Address getBillingAddress(int userId) {
+		String selectQuery="FROM Address WHERE userid = :user AND billing = :billing";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery,Address.class)
-					.setParameter("user", user)
+					.setParameter("user", userId)
 					  .setParameter("billing", true)
 					     .getSingleResult();
 		}
@@ -75,12 +76,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<Address> listShippingAddresses(User user) {
-		String selectQuery="FROM Address WHERE user = :user AND shipping = :shipping";
+	public List<Address> listShippingAddresses(int userId) {
+		String selectQuery="FROM Address WHERE userid = :user AND shipping = :shipping";
 		try {
 			return sessionFactory.getCurrentSession()
 					.createQuery(selectQuery,Address.class)
-					.setParameter("user", user)
+					.setParameter("user", userId)
 					  .setParameter("shipping", true)
 					    .getResultList();
 		}
@@ -88,6 +89,31 @@ public class UserDaoImpl implements UserDao {
 			ex.printStackTrace();
 			return null;
 		}
+	}
+
+
+	@Override
+	public Address getAddress(int addressId) {
+		try {
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);
+		}
+		catch(Exception ex) {
+			System.out.println();
+			return  null;
+		}
+	}
+
+	@Override
+	public Boolean updateAddress(Address address) {
+	
+		try {
+			sessionFactory.getCurrentSession().update(address);
+			return true;
+		}
+		catch(Exception ex){
+			return false;
+		}
+	
 	}
 
 	@Override
@@ -100,8 +126,17 @@ public class UserDaoImpl implements UserDao {
 			ex.printStackTrace();
 			return false;
 		}
-		
 	}
-	
 
+	@Override
+	public boolean updateCart(Cart cart) {
+		
+		try {			
+			sessionFactory.getCurrentSession().update(cart);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
 }

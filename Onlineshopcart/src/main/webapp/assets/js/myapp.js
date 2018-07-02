@@ -1,4 +1,12 @@
 $(function(){
+
+	// for adding a loader
+	$(window).load(function(){
+		setTimeout(function() {
+			$(".se-pre-con").fadeOut("slow");
+		}, 500);			
+	});	
+	
 // sloving active menu problem
 	
 	switch(menu){
@@ -32,12 +40,13 @@ $(function(){
 	
 	  // to tackle the csrf token
 	var token = $('meta[name="_csrf"]').attr('content');
-	var header =$('meta[name="_csrf_header"').attr('content');
-	if(token.length > 0 && haeder.length > 0){
-		
-		//set the token for the ajax request
-		$(document).ajaxSend(function(e, xhr, options){
-			xhr.setRequestHeader(header,token);	
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if((token!=undefined && header !=undefined) && (token.length > 0 && header.length > 0)) {		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {			
+			xhr.setRequestHeader(header,token);			
+
 	});
 		}
 	
@@ -408,7 +417,7 @@ $(function(){
 		});
 	}
 			//------------------------------------
-			/*// handling the click event of refresh cart button
+			// handling the click event of refresh cart button
 			
 			$('button[name="refreshCart"]').click(function(){
 				
@@ -422,10 +431,7 @@ $(function(){
 				//work  only when the count has changed
 				
 				if(currentCount !== originalCount){
-				
-					console.log("current count:" + currentCount);
-					console.log("original count:" + originalCount);
-					
+			
 					if(currentCount < 1 || currentCount > 3){
 						//reverting back to the original count
 						//user has given value below 1 and above 3
@@ -450,10 +456,5 @@ $(function(){
 					
 }
 			});
-			
-*/
-			
-			//------------------------------------
-			
 			
 });

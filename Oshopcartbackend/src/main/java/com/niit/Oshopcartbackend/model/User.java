@@ -16,60 +16,41 @@ import javax.persistence.Transient;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name="user_detail")
-public class User implements Serializable {
-	
-	
+@Table(name = "user_detail")
+public class User implements Serializable{
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	/*
-	 * private field for user
-	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="first_name")
-	@NotBlank(message="Please enter first name!")
+	@NotBlank(message = "Please enter first name!")
+	@Column(name = "first_name")
 	private String firstName;
-	@Column(name="last_name")
-	@NotBlank(message="Please enter last name!")
+	@NotBlank(message = "Please enter last name!")
+	@Column(name = "last_name")
 	private String lastName;
-	@NotBlank(message="Please enter email address!")
+	@NotBlank(message = "Please enter email address!")	
 	private String email;
-	@Column(name="contact_number")
-	@NotBlank(message="Please enter contact number!")
+	@NotBlank(message = "Please enter contact number!")
+	@Column(name = "contact_number")
 	private String contactNumber;
 	private String role;
-	@NotBlank(message="Please enter password!")
+	@NotBlank(message = "Please enter password!")
 	private String password;
-	private boolean enabled= true;
-	
-	// confirm password transient field
+	private boolean enabled = true;
 	@Transient
 	private String confirmPassword;
+
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Cart cart;
-	public Cart getCart() {
-		return cart;
-	}
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-	
-	/*
-	 * setter and getter for field
-	 */
-	
 	
 	public int getId() {
 		return id;
@@ -119,9 +100,7 @@ public class User implements Serializable {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	/*
-	 * toString for logging and debbugging activity
-	 */
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
@@ -129,4 +108,13 @@ public class User implements Serializable {
 				+ enabled + "]";
 	}
 	
+	
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Cart cart;
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 }

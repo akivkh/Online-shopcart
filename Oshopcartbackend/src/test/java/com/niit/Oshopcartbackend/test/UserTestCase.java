@@ -67,7 +67,7 @@ public class UserTestCase {
 			User nUser=userDao.getByEmail(cart.getUser().getEmail());
 			nUser.setCart(cart);
 			// add the cart
-			assertEquals("Failed to add cart,",true, userDao.updateUser(nUser));
+		assertEquals("Failed to add cart,",true, userDao.updateUser(user));
 		System.out.println(cart.getId());
 			// add a shipping address for this user
 			address =new Address();
@@ -200,7 +200,7 @@ public class UserTestCase {
 						assertEquals("Failed to add Shipping Address",true, userDao.addAddress(address));
 		
 	}*/
-	@Test
+	/*@Test
 	public void testGetAddresses() {
 		
 		user =userDao.getByEmail("rs@gmail.com");
@@ -210,6 +210,6 @@ public class UserTestCase {
 	
 		assertEquals("failed to fetch the list of billing address and size deos not match!","Lucknow", 
 				  userDao.getBillingAddress(user).getCity());
-	}
+	}*/
 	
 }

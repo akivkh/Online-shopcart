@@ -37,41 +37,54 @@ public class CartLineTestCase {
 		userDao = (UserDao)context.getBean("userDao");
 		cartLineDao = (CartLineDao)context.getBean("cartLineDao");
 	}
-	
-	@Test 
-	public void testAddNewCartLine() {
-		// 1.get the user
-		user = userDao.getByEmail("ar@gmail.com");
+	@Test
+	public void testAddCartLine() {
 		
-		// 2. fetch the cart
-		cart =user.getCart();
+		// fetch the user and then cart of that user
+		User user = userDao.getByEmail("rm@gmail.com");		
+		Cart cart = user.getCart();
 		
-		//3. get the product
-		product = productDao.get(1);
+		// fetch the product 
+		Product product = productDao.get(2);
 		
-		//4. create a new cartLine
+		// Create a new CartLine
 		cartLine = new CartLine();
-		
-		cartLine.setBuyingPrice(product.getUnitPrice());
-		
-		cartLine.setProductCount(cartLine.getProductCount() + 1);
-		
-		cartLine.setTotal(cartLine.getProductCount() * product.getUnitPrice());
-		
-		cartLine.setAvailable(true);
-		
 		cartLine.setCartId(cart.getId());
-		
 		cartLine.setProduct(product);
+		cartLine.setProductCount(1);
 		
-		assertEquals("Failed to add the cartLine", true, cartLineDao.add(cartLine));
+		double oldTotal = cartLine.getTotal();		
 		
-		// update the cart
-		cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
-		cart.setCartLines(cart.getCartLines() +1);
+		cartLine.setTotal(product.getUnitPrice() * cartLine.getProductCount());
 		
-		assertEquals("Failed to update  the cartLine", true, cartLineDao.updateCart(cart));
+		cart.setCartLines(cart.getCartLines() + 1);
+		cart.setGrandTotal(cart.getGrandTotal() + (cartLine.getTotal() - oldTotal));
+		
+		assertEquals("Failed to add the CartLine!",true, cartLineDao.add(cartLine));
+		assertEquals("Failed to update the cart!",true, userDao.updateCart(cart));
+		
 	}
 	
 
+	
+   @Test
+	public void testUpdateCartLine() {
+		// fetch the user and then cart of that user
+		User user = userDao.getByEmail("absr@gmail.com");		
+		Cart cart = user.getCart();
+				
+		cartLine = cartLineDao.getByCartAndProduct(cart.getId(), 2);
+		
+		cartLine.setProductCount(cartLine.getProductCount() + 1);
+				
+		double oldTotal = cartLine.getTotal();
+				
+		cartLine.setTotal(cartLine.getProduct().getUnitPrice() * cartLine.getProductCount());
+		
+		cart.setGrandTotal(cart.getGrandTotal() + (cartLine.getTotal() - oldTotal));
+		
+		assertEquals("Failed to update the CartLine!",true, cartLineDao.update(cartLine));	
+		
+	}
+	
 }

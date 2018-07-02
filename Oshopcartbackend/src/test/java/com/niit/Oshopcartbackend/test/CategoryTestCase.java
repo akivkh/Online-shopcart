@@ -70,14 +70,14 @@ public class CategoryTestCase {
 		category=new Category();
 		category.setName("Television");
 		category.setDescription("This is some description for television");
-		category.setImageURL("CAT_2.png");
+	
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
 	
 		category=new Category();
 		category.setName("Mobile");
 		category.setDescription("This is some description for mobile");
-		category.setImageURL("CAT_3.png");
+		
 		
 		assertEquals("successfully added a category inside table",true,categoryDao.add(category));
 

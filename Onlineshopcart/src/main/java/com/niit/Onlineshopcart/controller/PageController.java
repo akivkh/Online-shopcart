@@ -125,7 +125,7 @@ public class PageController {
 		
 		mv.addObject("title",product.getName());
 		mv.addObject("product",product);
-		
+		mv.addObject("product", productDao.get(id));
 		mv.addObject("userClickShowProduct",true);
 		
 		
@@ -159,16 +159,7 @@ public class PageController {
 		return mv;
 	
 	}
-	/* access deniied page */
-	@RequestMapping(value= "/access-denied")
-	public ModelAndView accessDenied() {
-		
-		ModelAndView mv = new ModelAndView("error");
-		mv.addObject("title","403 - Access Denied");
-		mv.addObject("errorTitle","Aha! Caught you ");
-		mv.addObject("errorDescription","You are not Authorized to view this page");
-		return mv;
-	}
+	
 	
 	// Logout   
     @RequestMapping(value="/perform-logout")
@@ -183,4 +174,14 @@ public class PageController {
     	
     	return "redirect:/login?logout";
     }
+    /* access deniied page */
+	@RequestMapping(value= "/access-denied")
+	public ModelAndView accessDenied() {
+		
+		ModelAndView mv = new ModelAndView("error");
+		mv.addObject("title","403 - Access Denied");
+		mv.addObject("errorTitle","Aha! Caught you ");
+		mv.addObject("errorDescription","You are not Authorized to view this page");
+		return mv;
+	}
 }

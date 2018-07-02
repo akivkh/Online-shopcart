@@ -13,9 +13,14 @@ public interface UserDao {
 	boolean updateUser(User user);
 	User getByEmail(String email);
 	
-	// add an address
+	// add an updating a new address
+	Address getAddress(int addressId);
 	boolean addAddress(Address address);
-	Address getBillingAddress(User user);
-	List<Address> listShippingAddresses(User user);
+	Boolean updateAddress(Address address);
+	Address getBillingAddress(int userId);
+	List<Address> listShippingAddresses(int UserId);
+	boolean updateCart(Cart cart);
+
+
 	
 }

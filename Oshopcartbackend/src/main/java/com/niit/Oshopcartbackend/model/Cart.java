@@ -17,18 +17,47 @@ public class Cart implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	/*
-	 * private field
-	 */
-
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
- 
-	private int id;
 	
-	/*----*/
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private int id;
+	@Column(name = "grand_total")
+	private double grandTotal;
+	@Column(name = "cart_lines")
+	private int cartLines;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getGrandTotal() {
+		return grandTotal;
+	}
+
+	public void setGrandTotal(double grandTotal) {
+		this.grandTotal = grandTotal;
+	}
+
+	public int getCartLines() {
+		return cartLines;
+	}
+
+	public void setCartLines(int cartLines) {
+		this.cartLines = cartLines;
+	}
+
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
+	}
+	
+	// linking the cart with a user
 	@OneToOne
-    private User user;
+	private User user;
 	public User getUser() {
 		return user;
 	}
@@ -36,46 +65,4 @@ public class Cart implements Serializable {
 		this.user = user;
 	}
 	
-	
-	/*-----*/
-	@Column(name="grand_total")
-	private double grandTotal;
-	@Column(name="cart_lines")
-	private int cartLines;
-	
-	/*
-	 * setter and getter
-	 */
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public double getGrandTotal() {
-		return grandTotal;
-	}
-	public void setGrandTotal(double grandTotal) {
-		this.grandTotal = grandTotal;
-	}
-	public int getCartLines() {
-		return cartLines;
-	}
-	public void setCartLines(int cartLines) {
-		this.cartLines = cartLines;
-	}
-	/*
-	 * toString for logginf and debugging activity
-	 */
-	@Override
-	public String toString() {
-		return "Cart [id=" + id + ", user=" + user + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
-	}
-	
-	
-	
-	
-	
 }
-

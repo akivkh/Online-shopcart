@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.junit.Ignore;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category implements Serializable {
 	
@@ -27,9 +31,7 @@ public class Category implements Serializable {
 	private int id;
 	private String name;
 	private String description;
-	@Column(name="image_url")
-	private String imageURL;
-	@Column()
+	@Column(name="is_active")
 	private boolean active=true;
 	
 	
@@ -56,25 +58,19 @@ public class Category implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImageURL() {
-		return imageURL;
-	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
-	}
 	public boolean isActive() {
 		return active;
 	}
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
-				+ ", active=" + active + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", active=" + active + "]";
+	}
+	
+	
+	
 	}	
 
 	
-}
