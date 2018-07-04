@@ -11,7 +11,7 @@
 	<on-start>
 		<evaluate expression="registerHandler.init()" result="flowScope.registerModel" />
 	</on-start>
-
+ 
 
 	<!-- is the Start state -->
 	<view-state id="personal" view="flows/register/signup-personal"

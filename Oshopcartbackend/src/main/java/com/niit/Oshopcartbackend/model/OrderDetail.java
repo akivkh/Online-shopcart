@@ -87,7 +87,7 @@ public class OrderDetail implements Serializable {
 	}
 	public void setBilling(Address billing) {
 		this.billing = billing;
-	}
+	} 
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}

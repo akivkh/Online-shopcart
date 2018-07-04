@@ -9,7 +9,7 @@
 				<span class="sr-only">Toggle navigation</span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
-			</button>
+			</button> 
 			<a class="navbar-brand" href="${contextRoot}/home">Online
 				Shopcart</a>
 		</div>

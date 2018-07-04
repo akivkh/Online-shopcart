@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="panel-body">
-
+ 
 					<sf:form method="POST"
 					 class="form-horizontal" 
 					id="registerForm"

@@ -422,7 +422,7 @@ $(function(){
 			$('button[name="refreshCart"]').click(function(){
 				
 				//fetch the cart line id
-				var cartrLineId = $(this).attr('value');
+				var cartLineId = $(this).attr('value');
 				var countElement = $('#count_' + cartLineId);
 				
 				var originalCount= countElement.attr('value');
@@ -447,7 +447,7 @@ $(function(){
 					
 					else{
 						
-						var updateUrl= window.contextRoot + '/cart' + cartLineId + '/update?count=' +currentCount;
+						var updateUrl= window.contextRoot + '/cart/' + cartLineId + '/update?count=' +currentCount;
 						 //forward it to the controller
 						
 						window.location.href= updateUrl;

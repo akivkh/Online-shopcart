@@ -12,7 +12,7 @@
 				<h1>Welcome!</h1>
 				<h3>onlineshopcart.com</h3>
 				<h6>You use your email address as username to login!</h6>
-
+ 
 				<div>
 					<a href="${contextRoot}/login" class="btn btn-lg btn-success">Login
 						Here</a>

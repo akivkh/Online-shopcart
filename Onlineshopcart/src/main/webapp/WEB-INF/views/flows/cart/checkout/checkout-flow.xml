@@ -5,10 +5,10 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
   <var name="shipping" class="com.niit.Oshopcartbackend.model.Address"/>
-
+ 
 	<on-start>
 		<evaluate expression="checkoutHandler.init(currentUser.name)" result="flowScope.checkoutModel"/>
-	</on-start>
+	</on-start> 
 
 	<!-- view the address selection page-->
 	<view-state id="shipping" view="flows/cart/checkout/order-address" model="shipping">
@@ -56,7 +56,7 @@
 	<!-- global transition -->
 	<global-transitions>
 		<transition on="home" to="home" validate="false" />
- 		<transition on-exception="java.lang.Exception" to="error" />
+ 		<transition on-exception="java.lang.Exception" to="error" /> 
 	</global-transitions>
 	
 </flow>

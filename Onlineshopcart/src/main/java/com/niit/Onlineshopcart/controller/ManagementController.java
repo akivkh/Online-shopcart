@@ -34,7 +34,7 @@ public class ManagementController {
 	@Autowired
 	private CategoryDao categoryDao;
 
-	@Autowired
+	@Autowired 
 	private ProductDao productDao;
 
 	// logger for debuging purpose

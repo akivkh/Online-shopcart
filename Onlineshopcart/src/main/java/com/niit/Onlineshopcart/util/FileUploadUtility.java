@@ -18,7 +18,7 @@ public class FileUploadUtility {
 
 	public static boolean uploadFile(HttpServletRequest request, MultipartFile file, String code) {
 
-		// get the real path
+		// get the real path 
 		REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images/");
 		logger.info(REAL_PATH);
 

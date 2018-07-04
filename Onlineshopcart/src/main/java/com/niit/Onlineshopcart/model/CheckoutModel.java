@@ -15,7 +15,7 @@ public class CheckoutModel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	 
 	private User user;
 	private Address shipping;
 	private Cart cart;

@@ -18,7 +18,7 @@ public class GlobalController {
 	@Autowired
 	private HttpSession session;
 	
-	@Autowired
+	@Autowired 
    private UserDao userDao;
 	
 	private UserModel userModel = null; 

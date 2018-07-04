@@ -22,6 +22,7 @@
 						<th style="width:22%" class="text-center">Subtotal</th>
 						<th style="width:10%"></th>
 					</tr>
+					
 				</thead>
 				<tbody>
 					<c:forEach items="${cartLines}" var="cartLine">
@@ -52,7 +53,8 @@
 						<td data-th="Subtotal" class="text-center">&#8377; ${cartLine.total} /-</td>
 						<td class="actions" data-th="">
 							<c:if test="${cartLine.available == true}">
-								<a href="${contextRoot}/cart/${cartLine.id}/update" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>
+							<button type="button" name="refreshCart" value="${ cartLine.id}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
+								<%-- <a href="${contextRoot}/cart/${cartLine.id}/update"  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></a> --%>
 							</c:if>												
 							<a href="${contextRoot}/cart/${cartLine.id}/delete" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a>								
 						</td>

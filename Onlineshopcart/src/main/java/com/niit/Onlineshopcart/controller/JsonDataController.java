@@ -17,7 +17,7 @@ public class JsonDataController {
 	
 	@Autowired
 	private ProductDao productDao;
-	
+	 
 	@RequestMapping("/all/products")
 	@ResponseBody
 	public List<Product> getAllProducts(){

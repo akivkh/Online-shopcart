@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <p>Copyright &copy; OnlineShopcart 2018</p>
                 </div>
-            </div>
+            </div> 
         </footer>
 
     </div>

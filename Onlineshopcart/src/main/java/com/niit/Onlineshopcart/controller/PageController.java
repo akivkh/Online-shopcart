@@ -28,7 +28,7 @@ public class PageController {
 	 private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
-	private CategoryDao categoryDao;
+	private CategoryDao categoryDao; 
 	
 	@Autowired
 	private ProductDao productDao;

@@ -25,7 +25,7 @@ public class CartService {
 
 	@Autowired
 	private HttpSession session;
-
+ 
 	// return the cart of the user who has logged in
 	private Cart getCart() {
 
@@ -48,7 +48,7 @@ public class CartService {
 			if (product.getQuantity() < count) {
 				return "result=unavailable";
 			}
-   
+    
 			// update the cart Line
 			cartLine.setProductCount(count);
 			cartLine.setBuyingPrice(product.getUnitPrice());

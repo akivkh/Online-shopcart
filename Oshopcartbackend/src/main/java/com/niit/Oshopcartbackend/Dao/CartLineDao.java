@@ -13,8 +13,8 @@ public interface CartLineDao {
 		public CartLine get(int id);	
 		public boolean add(CartLine cartLine);
 		public boolean update(CartLine cartLine);
-		public boolean delete(CartLine cartLine);
-		
+		public boolean delete(CartLine cartLine); 
+		 
 		// fetch the CartLine based on cartId and productId
 		public CartLine getByCartAndProduct(int cartId, int productId);		
 			

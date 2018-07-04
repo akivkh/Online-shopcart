@@ -10,7 +10,7 @@
 		<!-- to display the actual products -->
 		<div class="col-md-9">
 
-			<!-- adding bootstrap component of breadcrumb -->
+			 <!-- adding bootstrap component of breadcrumb -->
 
 			<div class="row">
 				<div class="col-lg-12">

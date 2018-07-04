@@ -9,7 +9,7 @@
 				<div class="row">
 					<c:forEach items="${checkoutModel.cartLines}" var="cartLine">
 					<div class="col-xs-12">
-						
+						 
 						<div> 
 							<h3>${cartLine.product.name}</h3>
 							<hr/>

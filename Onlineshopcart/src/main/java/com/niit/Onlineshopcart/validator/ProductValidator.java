@@ -12,7 +12,7 @@ public class ProductValidator implements Validator {
 		
 		return Product.class.equals(clazz);
 	}
-
+ 
 	@Override
 	public void validate(Object target, Errors errors) {
 	

@@ -60,7 +60,7 @@ public class CartLineDaoImpl implements CartLineDao {
 
 	@Override
 	public boolean delete(CartLine cartLine) {
-		try {			
+		try {			 
 			sessionFactory.getCurrentSession().delete(cartLine);
 			return true;
 		}catch(Exception ex) {

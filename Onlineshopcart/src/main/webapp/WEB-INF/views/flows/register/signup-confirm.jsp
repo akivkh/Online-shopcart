@@ -8,7 +8,7 @@
 					<h4>Pesonal Details</h4>
 				</div>
 				<div class="panel-body">
-					<!-- code to display the personal details -->
+				 	<!-- code to display the personal details -->
 					
 					     <div class="text-center">
 					     

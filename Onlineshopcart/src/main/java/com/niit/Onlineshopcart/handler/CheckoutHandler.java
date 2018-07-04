@@ -31,7 +31,7 @@ public class CheckoutHandler {
 	
 	@Autowired
 	private UserDao userDao;
-	
+	 
 	@Autowired
    private ProductDao productDao;
 	

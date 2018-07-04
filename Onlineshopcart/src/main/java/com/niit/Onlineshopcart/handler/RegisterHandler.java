@@ -22,7 +22,7 @@ public class RegisterHandler {
  private PasswordEncoder passwordEncoder;
 	
 	
- @Autowired
+ @Autowired 
  private UserDao userDao;
  public RegisterModel init() { 
   return new RegisterModel();

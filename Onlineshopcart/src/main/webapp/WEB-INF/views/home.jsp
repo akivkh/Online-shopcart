@@ -13,7 +13,7 @@
 		<div class="col-md-3">
 			<%@include file="./templates/sidebar.jsp"%>
 		</div>
-
+ 
 		<div class="col-md-9">
 
 			<div class="row carousel-holder">
