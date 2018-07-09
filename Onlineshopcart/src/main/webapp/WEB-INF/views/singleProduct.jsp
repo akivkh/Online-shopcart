@@ -75,7 +75,7 @@
              <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">
             <span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
                 
-                </c:otherwise>
+                 </c:otherwise>
             
             </c:choose>
             </security:authorize>
